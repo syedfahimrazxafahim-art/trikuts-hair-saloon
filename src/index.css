@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: 'Cinzel', serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+}
+
+:root {
+  --transition-theme: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+}
+
+/* Dark Mode (Default) */
+html.dark, :root {
+  --bg-primary: #0B0B0B;
+  --bg-secondary: #151515;
+  --bg-tertiary: #1E1E1E;
+  --text-primary: #F5F5F5;
+  --text-secondary: #AFAFAF;
+  --text-muted: #777777;
+  --border-subtle: rgba(119, 119, 119, 0.25);
+  --border-accent: #777777;
+  --accent-silver: #CFCFCF;
+  --card-bg: #151515;
+  --card-border: rgba(119, 119, 119, 0.25);
+  --card-hover-border: rgba(245, 245, 245, 0.5);
+  --btn-primary-bg: #F5F5F5;
+  --btn-primary-text: #0B0B0B;
+  --btn-primary-hover: #CFCFCF;
+  --barber-stripe-1: #0B0B0B;
+  --barber-stripe-2: #222222;
+  --barber-stripe-3: #555555;
+  --glass-nav: rgba(11, 11, 11, 0.92);
+}
+
+/* Light Mode */
+html.light {
+  --bg-primary: #F7F7F5;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #ECECE9;
+  --text-primary: #151515;
+  --text-secondary: #555555;
+  --text-muted: #888888;
+  --border-subtle: rgba(21, 21, 21, 0.12);
+  --border-accent: #CCCCCC;
+  --accent-silver: #262626;
+  --card-bg: #FFFFFF;
+  --card-border: rgba(21, 21, 21, 0.12);
+  --card-hover-border: rgba(21, 21, 21, 0.35);
+  --btn-primary-bg: #151515;
+  --btn-primary-text: #F7F7F5;
+  --btn-primary-hover: #333333;
+  --barber-stripe-1: #F7F7F5;
+  --barber-stripe-2: #E5E5E0;
+  --barber-stripe-3: #CCCCCC;
+  --glass-nav: rgba(247, 247, 245, 0.92);
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: var(--transition-theme);
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    letter-spacing: 0.04em;
+  }
+}
+
+/* Barber animated pole stripe divider */
+@keyframes barberPoleMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 56px 0;
+  }
+}
+
+.barber-stripe-line {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--barber-stripe-1),
+    var(--barber-stripe-1) 10px,
+    var(--barber-stripe-2) 10px,
+    var(--barber-stripe-2) 20px,
+    var(--barber-stripe-3) 20px,
+    var(--barber-stripe-3) 28px
+  );
+  background-size: 56px 56px;
+  animation: barberPoleMove 4s linear infinite;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-silver);
+}

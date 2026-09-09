@@ -1,0 +1,6 @@
+{
+  "name": "TriKuts Barbershop",
+  "description": "Classic cuts and modern confidence. A classic premium barbershop based in New York, New York.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
